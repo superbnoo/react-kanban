@@ -11,3 +11,14 @@ const result = {
     index: 1
   }
 }
+
+// draggable snapshot
+const draggableSnapshot = {
+  isDragging: true,
+  draggingOver: 'column-1'
+}
+// droppable snapshot
+const droppableSnapshot = {
+  isDragging: true,
+  draggingOverWith: 'task-1'
+}
