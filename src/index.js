@@ -22,7 +22,7 @@ const PageTitle = styled.div`
   font-family:Poppins-Medium, Poppins;
   font-weight:500;
   margin-bottom: 16px;
-  margin-left: 8px;
+  margin-left: 16px;
 `
 
 class InnerList extends React.PureComponent {

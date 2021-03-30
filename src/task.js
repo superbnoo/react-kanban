@@ -119,11 +119,11 @@ const TaskContent = ({task}) => {
           })}
         </div>
         <StatContainer>
-          <div className="stat-text">12</div>
+          <div className="stat-text">{task.stat.comment}</div>
           <MsgImage />
-          <div className="stat-text mar-left-8">29</div>
+          <div className="stat-text mar-left-8">{task.stat.like}</div>
           <HeartImage />
-          <div className="stat-text mar-left-8">13</div>
+          <div className="stat-text mar-left-8">{task.stat.attach}</div>
           <AttachImage />
         </StatContainer>
       </CardFooterContainer>
