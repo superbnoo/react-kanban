@@ -1,3 +1,20 @@
+body {
+  display: block;
+  margin: 0px;
+}
+
+.board-container {
+  display: flex;
+  /* default no-wrap */
+  flex-wrap: wrap;
+}
+/* flex-wrap: wrap; */
+@media screen and (min-width: 768px) {
+  .board-container {
+    flex-wrap: no-wrap;
+  }
+
+}
 
 .card-img {
   width: 100%;

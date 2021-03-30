@@ -9,7 +9,7 @@ import Column from "./column";
 
 
 const PageContainer = styled.div`
-  margin: 16px;
+  padding: 8px;
 `
 
 const PageTitle = styled.div`
@@ -17,10 +17,7 @@ const PageTitle = styled.div`
   font-family:Poppins-Medium, Poppins;
   font-weight:500;
   margin-bottom: 16px;
-`
-
-const Container = styled.div`
-  display: flex;
+  margin-left: 8px;
 `
 
 class InnerList extends React.PureComponent {
@@ -113,13 +110,14 @@ class App extends React.Component {
   };
 
   render() {
+    
     return (
       <PageContainer>
       <PageTitle>Bracket</PageTitle>
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Droppable droppableId="all-columns" direction="horizontal" type="column">
           {(provided) => (
-            <Container
+            <div className="board-container"
               innerRef={provided.innerRef}
               {...provided.droppableProps}
             >
@@ -133,7 +131,7 @@ class App extends React.Component {
                         taskMap={this.state.tasks}
                       />;
               })}
-            </Container>
+            </div>
           )}
         </Droppable>
       </DragDropContext>

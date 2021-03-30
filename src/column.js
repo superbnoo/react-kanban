@@ -4,14 +4,12 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import Task from './task';
 
 const Container = styled.div`
-  margin-right: 8px;
   background-color: white;
   border-radius: 2px;
-  width: 362px;
-  flex-shrink: 0;
-
+  flex: 1 0 362px;
   display: flex;
   flex-direction: column;
+  margin: 8px;
 `;
 
 const Title = styled.h3`
@@ -45,7 +43,6 @@ const AddNewContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
   border: 2px dashed lightgrey;
   border-radius: 8px;
   height: 160px;
