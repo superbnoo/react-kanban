@@ -111,6 +111,8 @@ class App extends React.Component {
 
   render() {
     return (
+      <PageContainer>
+      <PageTitle>Bracket</PageTitle>
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Droppable droppableId="all-columns" direction="horizontal" type="column">
           {(provided) => (
@@ -132,8 +134,21 @@ class App extends React.Component {
           )}
         </Droppable>
       </DragDropContext>
+      </PageContainer>
     );
   }
 }
+
+const PageContainer = styled.div`
+  margin: 16px;
+`
+
+const PageTitle = styled.div`
+  font-size:26px;
+  font-family:Poppins-Medium, Poppins;
+  font-weight:500;
+  margin-bottom: 16px;
+`
+
 
 ReactDOM.render(<App />, document.getElementById("root"));

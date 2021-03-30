@@ -4,7 +4,7 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import Task from './task';
 
 const Container = styled.div`
-  margin: 8px;
+  margin-right: 8px;
   background-color: white;
   border-radius: 2px;
   width: 362px;
@@ -17,7 +17,7 @@ const Title = styled.h3`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px;
+  padding: 0px 16px;
   margin: auto 0px;
   height: 50px;
   background-color: #f4f4f4;
@@ -33,15 +33,27 @@ const TaskList = styled.div`
   min-height: 100px;
 `;
 
+const TitleLabel = styled.div`
+  font-size:16px;
+  font-family:Poppins-Medium, Poppins;
+  font-weight:500;
+`
+
 const TitleComponent = ({title}) => {
   return (
     <>
-      <div>
+      <TitleLabel>
         {title}
-      </div>
-      <div>
-        . . .
-      </div>
+      </TitleLabel>
+      <svg width={24} height={6} viewBox="0 0 24 6">
+        <defs>
+          <style>{".a{fill:#cdccca;}"}</style>
+        </defs>
+        <path
+          className="a"
+          d="M18,3a3,3,0,1,1,3,3A3,3,0,0,1,18,3ZM9,3a3,3,0,1,1,3,3A3,3,0,0,1,9,3ZM0,3A3,3,0,1,1,3,6,3,3,0,0,1,0,3Z"
+        />
+      </svg>
     </>
   );
 };
