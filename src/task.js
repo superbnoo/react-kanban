@@ -76,10 +76,13 @@ const AttachImage = () => (
 
 )
 
+const TaskContentContainer = styled.div`
+`
+
 const TaskContent = ({task}) => {
 
   return (
-    <>
+    <TaskContentContainer key={task.id}>
       {task.img !== '' &&
         <img
           src={task.img}
@@ -88,9 +91,9 @@ const TaskContent = ({task}) => {
         />
       }
       <TagContainer>
-        {task.tags.map((tag) => {
+        {task.tags.map((tag, index) => {
           const tagClass = `tag ${tag}`
-          return (<div className={tagClass}></div>)
+          return (<div key={`key${index}`} className={tagClass}></div>)
         })}
 
       </TagContainer>
@@ -102,16 +105,16 @@ const TaskContent = ({task}) => {
       </div>
       <CardFooterContainer>
         <AvatarContainer>
-          {task.users.map((avatar) => {
+          {task.users.map((avatar, index) => {
             return avatar !== '' ? (
-              <div className="avatarWrapper">
+              <div key={`avatar${index}`} className="avatarWrapper">
                 <img
                   src={avatar}
                   className="avatar"
                   alt="card preview"
                 />
               </div>) :(
-                <div className="avatarWrapper">
+                <div key={`avatar${index}`} className="avatarWrapper">
                   <svg height="30" width="30">
                     <circle cx="15" cy="15" r="15" fill="black" />
                   </svg>
@@ -128,7 +131,8 @@ const TaskContent = ({task}) => {
           <AttachImage />
         </StatContainer>
       </CardFooterContainer>
-    </>
+
+    </TaskContentContainer>
   );
 };
 
@@ -145,7 +149,7 @@ export default class Task extends React.Component {
             innerRef={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
-            <TaskContent task={this.props.task}/>
+            <TaskContent key={this.props.task.id} task={this.props.task}/>
 
           </Container>
         )}

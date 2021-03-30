@@ -1,5 +1,5 @@
-
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
   display: block;
@@ -8,11 +8,20 @@ html, body {
 
 .logo {
   margin-left: 32px;
+  display: flex;
+  align-items: center;
 }
 
 .vl {
   border-left: 1px solid lightgrey;
   height: 32px;
+  margin: 0px 16px;
+}
+
+.dashboard-title {
+  font-size: 16px;
+  font-family: Poppins-Regular, Poppins;
+  margin-left: 8px;
 }
 
 .board-container {
@@ -33,7 +42,6 @@ html, body {
   background-position: center center;
   background-repeat: no-repeat;
 }
-
 
 /* avatars */
 .avatarWrapper {
@@ -60,7 +68,6 @@ html, body {
   background: rgba(0, 0, 0, 0.5);
   margin-right: 32px;
 }
-
 
 /* tag */
 .tag {
@@ -95,16 +102,23 @@ html, body {
 }
 
 .card-title {
-  font-size:16px;font-family:Poppins-Regular, Poppins;
+  font-size: 16px;
+  font-family: Poppins-Regular, Poppins;
 }
 
 .card-subtitle {
-  font-size:13px;font-family:Poppins-Light, Poppins;font-weight:300;opacity:0.4;
+  font-size: 13px;
+  font-family: Poppins-Light, Poppins;
+  font-weight: 300;
+  opacity: 0.4;
 }
 
 /* stats */
 .stat-text {
-  font-size:14px;font-family:Poppins-Light, Poppins;font-weight:300;opacity:0.2;
+  font-size: 14px;
+  font-family: Poppins-Light, Poppins;
+  font-weight: 300;
+  opacity: 0.2;
 }
 
 .mar-left-8 {
@@ -114,5 +128,6 @@ html, body {
 /* add new card */
 .add-new-title {
   text-align: center;
-  font-size:16px;font-family:Poppins-Regular, Poppins;
+  font-size: 16px;
+  font-family: Poppins-Regular, Poppins;
 }

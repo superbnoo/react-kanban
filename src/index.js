@@ -44,6 +44,32 @@ const UserAvatar = () => (
   />
 )
 
+const DashboardIconComponent = () => (
+  <svg width="24px" height="24px" viewBox="0 0 24 24">
+    <defs>
+      <style>{".a{fill:#f4f4f4;}.b{opacity:0.2;}"}</style>
+    </defs>
+    <g transform="translate(24 24) rotate(180)">
+      <rect className="a" width={24} height={24} rx={3} />
+      <rect
+        className="b"
+        width={7.32}
+        height={10.5}
+        rx={1.44}
+        transform="translate(13.56 3.12)"
+      />
+      <rect
+        className="b"
+        width={7.32}
+        height={16.5}
+        rx={1.44}
+        transform="translate(3.12 3.12)"
+      />
+    </g>
+  </svg>
+);
+
+
 class InnerList extends React.PureComponent {
   render() {
     const { column, taskMap, index } = this.props;
@@ -139,6 +165,10 @@ function App() {
     <Navbar>
       <div className="logo">
         <LogoComponent />
+        <div className="vl"></div>
+        <DashboardIconComponent />
+        <div className="dashboard-title">Boards</div>
+        <div className="vl"></div>
       </div>
       <UserAvatar />
 
