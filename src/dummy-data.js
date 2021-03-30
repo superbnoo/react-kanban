@@ -14,26 +14,31 @@ const dummyData = {
     'column-1': {
       id: 'column-1',
       title: 'Design',
+      addable: true,
       taskIds: ['task-1', 'task-2']
     },
     'column-2': {
       id: 'column-2',
       title: 'Prototype',
+      addable: true,
       taskIds: ['task-3']
     },
     'column-3': {
       id: 'column-3',
       title: 'Trello',
+      addable: true,
       taskIds: ['task-4', 'task-5']
     },
     'column-4': {
       id: 'column-4',
       title: 'Test',
+      addable: false,
       taskIds: ['task-6']
     },
     'column-5': {
       id: 'column-5',
       title: 'Final',
+      addable: false,
       taskIds: ['task-7', 'task-8', 'task-9']
     }
   },

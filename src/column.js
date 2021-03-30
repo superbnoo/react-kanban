@@ -40,6 +40,20 @@ const TitleLabel = styled.div`
   font-weight:500;
 `
 
+const AddNewContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 2px dashed lightgrey;
+  border-radius: 8px;
+  height: 160px;
+  padding: 8px 0px;
+  flex-grow: 1;
+  min-height: 100px;
+`
+
 const TitleComponent = ({title}) => {
   return (
     <>
@@ -91,9 +105,16 @@ export default class Column extends React.Component {
                 >
                   <InnerList tasks={this.props.tasks} />
                   {provided.placeholder}
+                  {(!snapshot.isDraggingOver && this.props.column.addable) && (
+                    <AddNewContainer>
+                      <div className="add-new-title">+ Add New Card</div>
+                    </AddNewContainer>
+                  )}
                 </TaskList>
               )}
             </Droppable>
+
+
           </Container>
         )}
       </Draggable>
