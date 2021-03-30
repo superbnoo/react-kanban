@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 
 const Container = styled.div`
-  padding: 8px 16px;
+  padding: 16px;
   margin: auto 0px;
   border-radius: 8px;
   margin-bottom: 8px;
@@ -20,6 +20,13 @@ const TagContainer = styled.div`
 const TaskContent = ({task}) => {
   return (
     <>
+      {task.img !== '' &&
+        <img
+          src={task.img}
+          className="card-img"
+          alt="card preview"
+        />
+      }
       <TagContainer>
         {task.tags.map((tag) => {
           const tagClass = `tag ${tag}`
