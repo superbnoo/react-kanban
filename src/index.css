@@ -8,6 +8,27 @@
   background-repeat: no-repeat;
 }
 
+
+/* avatars */
+.avatarWrapper {
+  overflow: hidden;
+  background-color: rgba(255, 0, 0, 0.0);
+}
+
+.avatarWrapper:last-child {
+  overflow: visible;
+}
+
+.avatar {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #000000;
+}
+
+
+/* tag */
 .tag {
   width: 60px;
   height: 8px;

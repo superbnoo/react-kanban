@@ -16,8 +16,14 @@ const TagContainer = styled.div`
 
 
 
-
 const TaskContent = ({task}) => {
+  const avatarWidth = `${task.users.length * 15 + 17}px`;
+  const styles = {
+    'margin-top': "8px",
+    'display': 'flex',
+    'align-content': 'center',
+    'max-width': avatarWidth
+  }
   return (
     <>
       {task.img !== '' &&
@@ -39,6 +45,24 @@ const TaskContent = ({task}) => {
       </div>
       <div className="card-subtitle">
         {task.subtitle}
+      </div>
+      <div style={styles}>
+        {task.users.map((avatar) => {
+          return avatar !== '' ? (
+            <div className="avatarWrapper">
+              <img
+                src={avatar}
+                className="avatar"
+                alt="card preview"
+              />
+            </div>) :(
+              <div className="avatarWrapper">
+                <svg height="30" width="30">
+                  <circle cx="15" cy="15" r="15" fill="black" />
+                </svg>
+              </div>
+            )
+        })}
       </div>
     </>
   );
