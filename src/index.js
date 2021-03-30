@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import './index.css';
 import "@atlaskit/css-reset";
@@ -21,7 +21,6 @@ const PageTitle = styled.div`
 `
 
 class InnerList extends React.PureComponent {
-
   render() {
     const { column, taskMap, index } = this.props;
     const tasks = column.taskIds.map(
@@ -31,10 +30,11 @@ class InnerList extends React.PureComponent {
   }
 }
 
-class App extends React.Component {
-  state = dummyData;
+// class App extends React.Component {
+function App() {
+  const [state, setState] = useState(dummyData);
 
-  onDragEnd = (result) => {
+  const onDragEnd = (result) => {
     // console.log('on dragend ' + JSON.stringify(result));
     const { destination, source, draggableId, type } = result;
     if (!destination) {
@@ -46,21 +46,21 @@ class App extends React.Component {
     }
 
     if (type === 'column') {
-      const newColumnOrder = Array.from(this.state.columnOrder);
+      const newColumnOrder = Array.from(state.columnOrder);
       newColumnOrder.splice(source.index, 1);
       newColumnOrder.splice(destination.index, 0, draggableId);
       const newState = {
-        ...this.state,
+        ...state,
         columnOrder: newColumnOrder,
       }
-      this.setState(newState);
+      setState(newState);
       return;
     }
 
 
     // reorder task
-    const start = this.state.columns[source.droppableId];
-    const finish = this.state.columns[destination.droppableId];
+    const start = state.columns[source.droppableId];
+    const finish = state.columns[destination.droppableId];
 
     if (start === finish) {
       const newTaskIds = Array.from(start.taskIds);
@@ -73,13 +73,13 @@ class App extends React.Component {
       }
 
       const newState = {
-        ...this.state,
+        ...state,
         columns: {
-          ...this.state.columns,
+          ...state.columns,
           [newColumn.id]: newColumn,
         }
       };
-      this.setState(newState);
+      setState(newState);
       return;
     }
 
@@ -98,46 +98,44 @@ class App extends React.Component {
     }
 
     const newState = {
-      ...this.state,
+      ...state,
       columns: {
-        ...this.state.columns,
+        ...state.columns,
         [newStart.id]: newStart,
         [newFinish.id]: newFinish,
       }
     };
-    this.setState(newState);
-
+    setState(newState);
   };
 
-  render() {
-    
-    return (
-      <PageContainer>
-      <PageTitle>Bracket</PageTitle>
-      <DragDropContext onDragEnd={this.onDragEnd}>
-        <Droppable droppableId="all-columns" direction="horizontal" type="column">
-          {(provided) => (
-            <div className="board-container"
-              innerRef={provided.innerRef}
-              {...provided.droppableProps}
-            >
-              {this.state.columnOrder.map((columnId, index) => {
-                const column = this.state.columns[columnId];
 
-                return <InnerList
-                        key={column.id}
-                        index={index}
-                        column={column}
-                        taskMap={this.state.tasks}
-                      />;
-              })}
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
-      </PageContainer>
-    );
-  }
+  return (
+    <PageContainer>
+    <PageTitle>Bracket</PageTitle>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Droppable droppableId="all-columns" direction="horizontal" type="column">
+        {(provided) => (
+          <div className="board-container"
+            innerRef={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            {state.columnOrder.map((columnId, index) => {
+              const column = state.columns[columnId];
+
+              return <InnerList
+                      key={column.id}
+                      index={index}
+                      column={column}
+                      taskMap={state.tasks}
+                    />;
+            })}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
+    </PageContainer>
+  );
+
 }
 
 
