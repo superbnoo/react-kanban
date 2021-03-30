@@ -7,10 +7,12 @@ import styled from 'styled-components';
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import dummyData from "./dummy-data";
 import Column from "./column";
+import LogoComponent from "./logo";
 
 
 const Container = styled.div`
   padding: 8px;
+  overflow-x: auto;
 `
 
 const PageContainer = styled.div`
@@ -24,6 +26,23 @@ const PageTitle = styled.div`
   margin-bottom: 16px;
   margin-left: 16px;
 `
+
+const Navbar = styled.div`
+  width: 100%;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+`
+
+const UserAvatar = () => (
+  <img className="user-avatar"
+    src="https://i.ibb.co/jb8LN6W/user-5.png"
+    alt="card preview"
+  />
+)
 
 class InnerList extends React.PureComponent {
   render() {
@@ -116,33 +135,45 @@ function App() {
 
 
   return (
-    <PageContainer>
-    <PageTitle>Bracket</PageTitle>
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="all-columns" direction="horizontal" type="column">
-        {(provided) => (
-          <Container className={isBigScreen ? 'board-container' : 'board-container-mobile'}
-            innerRef={provided.innerRef}
-            {...provided.droppableProps}
-          >
-            {state.columnOrder.map((columnId, index) => {
-              const column = state.columns[columnId];
+    <>
+    <Navbar>
+      <div className="logo">
+        <LogoComponent />
+      </div>
+      <UserAvatar />
 
-              return <InnerList
-                      key={column.id}
-                      index={index}
-                      column={column}
-                      taskMap={state.tasks}
-                    />;
-            })}
-          </Container>
-        )}
-      </Droppable>
-    </DragDropContext>
+    </Navbar>
+    <PageContainer>
+      <PageTitle>Bracket</PageTitle>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="all-columns" direction="horizontal" type="column">
+          {(provided) => (
+            <Container className={isBigScreen ? 'board-container' : 'board-container-mobile'}
+              innerRef={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {state.columnOrder.map((columnId, index) => {
+                const column = state.columns[columnId];
+
+                return <InnerList
+                        key={column.id}
+                        index={index}
+                        column={column}
+                        taskMap={state.tasks}
+                      />;
+              })}
+            </Container>
+          )}
+        </Droppable>
+      </DragDropContext>
     </PageContainer>
+    </>
   );
 
 }
+
+
+
 
 
 
