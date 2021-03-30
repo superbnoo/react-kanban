@@ -21,6 +21,13 @@ const CardFooterContainer = styled.div`
   justify-content: space-between;
 `
 
+const AvatarContainer = styled.div`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: 8px;
+`
+
 const StatContainer = styled.div`
   display: flex;
   margin: auto 0px;
@@ -70,13 +77,7 @@ const AttachImage = () => (
 )
 
 const TaskContent = ({task}) => {
-  const avatarWidth = `${task.users.length * 15 + 17}px`;
-  const styles = {
-    'marginTop': "8px",
-    'display': 'flex',
-    'alignContent': 'center',
-    'maxWidth': avatarWidth
-  }
+
   return (
     <>
       {task.img !== '' &&
@@ -100,7 +101,7 @@ const TaskContent = ({task}) => {
         {task.subtitle}
       </div>
       <CardFooterContainer>
-        <div style={styles}>
+        <AvatarContainer>
           {task.users.map((avatar) => {
             return avatar !== '' ? (
               <div className="avatarWrapper">
@@ -117,7 +118,7 @@ const TaskContent = ({task}) => {
                 </div>
               )
           })}
-        </div>
+        </AvatarContainer>
         <StatContainer>
           <div className="stat-text">{task.stat.comment}</div>
           <MsgImage />

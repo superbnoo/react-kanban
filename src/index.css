@@ -25,12 +25,11 @@ body {
 
 /* avatars */
 .avatarWrapper {
-  overflow: hidden;
-  /* background: rgba(0, 0, 0, 0.5); */
+  margin-left: -15px;
 }
 
-.avatarWrapper:last-child {
-  overflow: visible;
+.avatarWrapper:first-child {
+  margin-left: 0px;
 }
 
 .avatar {
