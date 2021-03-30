@@ -3,12 +3,41 @@ import styled from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 
 const Container = styled.div`
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  padding: 8px;
+  padding: 8px 16px;
+  margin: auto 0px;
+  border-radius: 8px;
   margin-bottom: 8px;
-  background-color: ${props => props.isDragging ? 'lightgreen' : 'white'};
+  background-color: ${props => props.isDragging ? 'lightgreen' : '#f4f4f4'};
 `;
+
+const TagContainer = styled.div`
+  display: flex;
+`
+
+
+
+
+const TaskContent = ({task}) => {
+  return (
+    <>
+      <TagContainer>
+        {task.tags.map((tag) => {
+          const tagClass = `tag ${tag}`
+          return (<div className={tagClass}></div>)
+        })}
+
+      </TagContainer>
+      <div className="card-title">
+        {task.content}
+      </div>
+      <div className="card-subtitle">
+        {task.subtitle}
+      </div>
+    </>
+  );
+};
+
+
 
 export default class Task extends React.Component {
   render() {
@@ -21,7 +50,8 @@ export default class Task extends React.Component {
             innerRef={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
-            {this.props.task.content}
+            <TaskContent task={this.props.task}/>
+
           </Container>
         )}
       </Draggable>

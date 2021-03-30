@@ -1,26 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './index.css';
 import "@atlaskit/css-reset";
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import dummyData from "./dummy-data";
 import Column from "./column";
 
+
+const PageContainer = styled.div`
+  margin: 16px;
+`
+
+const PageTitle = styled.div`
+  font-size:26px;
+  font-family:Poppins-Medium, Poppins;
+  font-weight:500;
+  margin-bottom: 16px;
+`
+
 const Container = styled.div`
   display: flex;
 `
 
 class InnerList extends React.PureComponent {
-  // shouldComponentUpdate(nextProps) {
-  //   if (
-  //     nextProps.column === this.props.column &&
-  //     nextProps.taskMap === this.props.taskMap &&
-  //     nextProps.index === this.props.index
-  //   ) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
 
   render() {
     const { column, taskMap, index } = this.props;
@@ -139,16 +142,6 @@ class App extends React.Component {
   }
 }
 
-const PageContainer = styled.div`
-  margin: 16px;
-`
-
-const PageTitle = styled.div`
-  font-size:26px;
-  font-family:Poppins-Medium, Poppins;
-  font-weight:500;
-  margin-bottom: 16px;
-`
 
 
 ReactDOM.render(<App />, document.getElementById("root"));

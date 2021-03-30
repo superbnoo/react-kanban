@@ -8,6 +8,7 @@ const Container = styled.div`
   background-color: white;
   border-radius: 2px;
   width: 362px;
+  flex-shrink: 0;
 
   display: flex;
   flex-direction: column;
@@ -60,12 +61,6 @@ const TitleComponent = ({title}) => {
 
 
 class InnerList extends React.PureComponent {
-  // shouldComponentUpdate(nextProps) {
-  //   if (nextProps.tasks === this.props.tasks) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
 
   render() {
     return this.props.tasks.map((task, index) => (
