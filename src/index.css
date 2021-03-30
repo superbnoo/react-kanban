@@ -12,7 +12,7 @@
 /* avatars */
 .avatarWrapper {
   overflow: hidden;
-  background-color: rgba(255, 0, 0, 0.0);
+  /* background: rgba(0, 0, 0, 0.5); */
 }
 
 .avatarWrapper:last-child {
@@ -24,7 +24,7 @@
   min-width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: #000000;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 
@@ -66,4 +66,13 @@
 
 .card-subtitle {
   font-size:13px;font-family:Poppins-Light, Poppins;font-weight:300;opacity:0.4;
+}
+
+/* stats */
+.stat-text {
+  font-size:14px;font-family:Poppins-Light, Poppins;font-weight:300;opacity:0.2;
+}
+
+.mar-left-8 {
+  margin-left: 8px;
 }
