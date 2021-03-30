@@ -6,7 +6,7 @@ import Task from './task';
 const Container = styled.div`
   background-color: white;
   border-radius: 2px;
-  flex: 1 0 362px;
+  flex: 1 0 343px;
   display: flex;
   flex-direction: column;
   margin: 8px;

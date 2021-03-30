@@ -5,15 +5,12 @@ body {
 
 .board-container {
   display: flex;
-  /* default no-wrap */
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
 }
-/* flex-wrap: wrap; */
-@media screen and (min-width: 768px) {
-  .board-container {
-    flex-wrap: no-wrap;
-  }
 
+.board-container-mobile {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card-img {

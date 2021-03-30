@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { useMediaQuery } from 'react-responsive'
 import './index.css';
 import "@atlaskit/css-reset";
 import styled from 'styled-components';
@@ -33,6 +34,7 @@ class InnerList extends React.PureComponent {
 // class App extends React.Component {
 function App() {
   const [state, setState] = useState(dummyData);
+  const isBigScreen = useMediaQuery({ minWidth: 768 });
 
   const onDragEnd = (result) => {
     // console.log('on dragend ' + JSON.stringify(result));
@@ -115,7 +117,7 @@ function App() {
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="all-columns" direction="horizontal" type="column">
         {(provided) => (
-          <div className="board-container"
+          <div className={isBigScreen ? 'board-container' : 'board-container-mobile'}
             innerRef={provided.innerRef}
             {...provided.droppableProps}
           >
