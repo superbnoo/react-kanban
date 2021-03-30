@@ -1,5 +1,5 @@
 ## Project demo at:
-[https://tetgaa.com/trello.html](https://tetgaa.com/trello.html).
+[https://tetgaa.com/trello.html](https://tetgaa.com/trello.html) - Showing Drag & Drop feature demo
 
 ## Getting Started with Create React App
 
