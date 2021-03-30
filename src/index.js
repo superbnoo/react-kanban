@@ -9,6 +9,10 @@ import dummyData from "./dummy-data";
 import Column from "./column";
 
 
+const Container = styled.div`
+  padding: 8px;
+`
+
 const PageContainer = styled.div`
   padding: 8px;
 `
@@ -117,7 +121,7 @@ function App() {
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="all-columns" direction="horizontal" type="column">
         {(provided) => (
-          <div className={isBigScreen ? 'board-container' : 'board-container-mobile'}
+          <Container className={isBigScreen ? 'board-container' : 'board-container-mobile'}
             innerRef={provided.innerRef}
             {...provided.droppableProps}
           >
@@ -131,7 +135,7 @@ function App() {
                       taskMap={state.tasks}
                     />;
             })}
-          </div>
+          </Container>
         )}
       </Droppable>
     </DragDropContext>
