@@ -5,25 +5,47 @@ import Task from './task';
 
 const Container = styled.div`
   margin: 8px;
-  border: 1px solid lightgrey;
   background-color: white;
   border-radius: 2px;
-  width: 220px;
+  width: 362px;
 
   display: flex;
   flex-direction: column;
 `;
+
 const Title = styled.h3`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 8px;
+  margin: auto 0px;
+  height: 50px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
 `;
+
 const TaskList = styled.div`
-  padding: 8px;
+  padding: 8px 0px;
   transition: background-color 0.2s ease;
   background-color: ${props =>
     props.isDraggingOver ? 'lightgrey' : 'inherit'};
   flex-grow: 1;
   min-height: 100px;
 `;
+
+const TitleComponent = ({title}) => {
+  return (
+    <>
+      <div>
+        {title}
+      </div>
+      <div>
+        . . .
+      </div>
+    </>
+  );
+};
+
 
 class InnerList extends React.PureComponent {
   // shouldComponentUpdate(nextProps) {
@@ -49,7 +71,10 @@ export default class Column extends React.Component {
             {...provided.draggableProps}
             innerRef={provided.innerRef}
           >
-            <Title {...provided.dragHandleProps}>{this.props.column.title}</Title>
+            <Title {...provided.dragHandleProps}>
+              <TitleComponent title={this.props.column.title} />
+            </Title>
+
             <Droppable droppableId={this.props.column.id} type="task">
               {(provided, snapshot) => (
                 <TaskList
